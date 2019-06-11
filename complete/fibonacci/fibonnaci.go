@@ -11,18 +11,18 @@ func Fib(num int) int {
 }
 
 // FibS はフィボナッチ数をマップで作成し、指定された値を返します
-func FibS(n int) int {
+func FibS(num int) int {
 	// num番目＋1 のスライスを作成
-	memo := make([]int, n+1)
+	memo := make([]int, num+1)
 	memo[0] = 0 // 0番目には0を挿入
 	memo[1] = 1 // 1番目には1を挿入
 
 	// [num]番目は 2 ~ [num]番目まで、[index-2]番目＋[index-1]番目 の計算を
 	// 繰り返しながら格納していくことで計算できる
-	for i := 2; i <= n; i++ {
+	for i := 2; i <= num; i++ {
 		memo[i] = memo[i-1] + memo[i-2]
 	}
 
 	// [num]番目に入っているのはFibonacciの[num]番目
-	return memo[n]
+	return memo[num]
 }

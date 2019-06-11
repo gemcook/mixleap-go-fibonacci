@@ -5,7 +5,7 @@ import "testing"
 func TestFib(t *testing.T) {
 	tests := []struct {
 		name string // テストの名前
-		n    int    // 入力値
+		num  int    // 入力値
 		want int    // 返却値
 	}{
 		{"1の時1を返す", 1, 1},
@@ -16,8 +16,8 @@ func TestFib(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Fib(tt.n); got != tt.want {
-				t.Errorf("Fib(%d) = %v, want %v", tt.n, got, tt.want)
+			if got := Fib(tt.num); got != tt.want {
+				t.Errorf("Fib(%d) = %v, want %v", tt.num, got, tt.want)
 			}
 		})
 	}
@@ -26,7 +26,7 @@ func TestFib(t *testing.T) {
 func TestFibS(t *testing.T) {
 	tests := []struct {
 		name string // テストの名前
-		n    int    // 入力値
+		num  int    // 入力値
 		want int    // 返却値
 	}{
 		{"1の時1を返す", 1, 1},
@@ -37,15 +37,17 @@ func TestFibS(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := FibS(tt.n); got != tt.want {
-				t.Errorf("Fib(%d) = %v, want %v", tt.n, got, tt.want)
+			if got := FibS(tt.num); got != tt.want {
+				t.Errorf("Fib(%d) = %v, want %v", tt.num, got, tt.want)
 			}
 		})
 	}
 }
 
 func BenchmarkFib(b *testing.B) {
+	// b.N はベンチマークをするためにいい感じの数値をパッケージ側で設定してくれる
 	for i := 0; i < b.N; i++ {
+		// 実行結果を比較しやすいように大きい数値を入れる
 		Fib(35)
 	}
 }
