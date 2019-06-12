@@ -34,11 +34,11 @@ func TestStringMatchWithRegexp(t *testing.T) {
 		args args
 		want bool
 	}{
-		{"[success] 16進数に現れる物のみ", args{str: "0x1234567890ABCDEF"}, true},
-		{"[fail] 最後だけ16進数表記ではない", args{str: "0x1234567890ABCDEFG"}, false},
-		{"[fail] 最初だけ16進数表記ではない", args{str: "1x1234567890ABCDEF"}, false},
-		{"[fail] 真ん中の一個だけ16進数表記ではない", args{str: "0x12345678H0ABCDEF"}, false},
-		{"[fail] 全て16進数表記ではない", args{str: "FriskStrongMint"}, false},
+		{"[is hex] 16進数に現れる物のみ", args{str: "0x1234567890ABCDEF"}, true},
+		{"[not hex] 最後だけ16進数表記ではない", args{str: "0x1234567890ABCDEFG"}, false},
+		{"[not hex] 最初だけ16進数表記ではない", args{str: "1x1234567890ABCDEF"}, false},
+		{"[not hex] 真ん中の一個だけ16進数表記ではない", args{str: "0x12345678H0ABCDEF"}, false},
+		{"[not hex] 全て16進数表記ではない", args{str: "FriskStrongMint"}, false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -58,11 +58,11 @@ func TestStringMatchWithoutRegexp(t *testing.T) {
 		args args
 		want bool
 	}{
-		{"[success] 16進数に現れる物のみ", args{str: "0x1234567890ABCDEF"}, true},
-		{"[fail] 最後だけ16進数表記ではない", args{str: "0x1234567890ABCDEFG"}, false},
-		{"[fail] 最初だけ16進数表記ではない", args{str: "1x1234567890ABCDEF"}, false},
-		{"[fail] 真ん中の一個だけ16進数表記ではない", args{str: "0x12345678H0ABCDEF"}, false},
-		{"[fail] 全て16進数表記ではない", args{str: "FriskStrongMint"}, false},
+		{"[is hex] 16進数に現れる物のみ", args{str: "0x1234567890ABCDEF"}, true},
+		{"[not hex] 最後だけ16進数表記ではない", args{str: "0x1234567890ABCDEFG"}, false},
+		{"[not hex] 最初だけ16進数表記ではない", args{str: "1x1234567890ABCDEF"}, false},
+		{"[not hex] 真ん中の一個だけ16進数表記ではない", args{str: "0x12345678H0ABCDEF"}, false},
+		{"[not hex] 全て16進数表記ではない", args{str: "FriskStrongMint"}, false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
