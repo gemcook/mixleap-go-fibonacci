@@ -10,7 +10,11 @@
 
 ## Presentation
 
+[ 発表資料 ]
 * https://speakerdeck.com/shinsakuyagi/mix-leap-go-hands-on
+
+[ 補足用 ]
+* https://speakerdeck.com/shinsakuyagi/mix-leap-go-hands-onfalsebu-zu-yong-suraidodesu
 
 ## Goのインストール
 
@@ -35,7 +39,7 @@ go version
 ### 2. GOPATH の確認
 
 ```
-go env
+go env GOPATH
 ```
 
 ### 3. GOPATH へ移動
