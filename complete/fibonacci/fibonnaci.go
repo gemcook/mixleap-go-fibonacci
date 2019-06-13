@@ -12,6 +12,9 @@ func Fib(num int) int {
 
 // FibS はフィボナッチ数をマップで作成し、指定された値を返します
 func FibS(num int) int {
+	if num < 2 {
+		return num
+	}
 	// num番目＋1 のスライスを作成
 	memo := make([]int, num+1)
 	memo[0] = 0 // 0番目には0を挿入
